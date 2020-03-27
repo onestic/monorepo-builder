@@ -93,12 +93,14 @@ final class SplitCommand extends Command
             : null;
 
         $tag = $input->getOption(Option::TAG);
+        $branch = $input->getOption(Option::BRANCH);
 
         $this->packageToRepositorySplitter->splitDirectoriesToRepositories(
             $this->directoriesToRepositories,
             $this->rootDirectory,
             $maxProcesses,
-            $tag
+            $tag,
+            $branch
         );
 
         return ShellCode::SUCCESS;
