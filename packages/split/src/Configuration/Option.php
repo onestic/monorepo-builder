@@ -15,4 +15,9 @@ final class Option
      * @var string
      */
     public const TAG = 'tag';
+
+    /**
+     * @var string
+     */
+    public const BRANCH = 'branch';
 }

@@ -67,7 +67,8 @@ final class PackageToRepositorySplitter
         array $splitConfig,
         string $rootDirectory,
         ?int $maxProcesses = null,
-        ?string $tag = null
+        ?string $tag = null,
+        ?string $branch = null
     ): void {
         if ($tag === null) {
             // If user let the tool to automatically select the last tag, check if there are valid
@@ -89,6 +90,7 @@ final class PackageToRepositorySplitter
 
             $process = $this->processFactory->createSubsplit(
                 $tag,
+                $branch,
                 $localDirectory,
                 $remoteRepositoryWithGithubKey
             );

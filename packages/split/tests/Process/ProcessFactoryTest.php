@@ -26,6 +26,7 @@ final class ProcessFactoryTest extends AbstractKernelTestCase
     {
         $subsplitProcess = $this->processFactory->createSubsplit(
             '',
+            null,
             'localDirectory',
             'git@github.com:Symplify/Symplify.git'
         );
