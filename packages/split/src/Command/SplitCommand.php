@@ -76,6 +76,12 @@ final class SplitCommand extends Command
             InputOption::VALUE_REQUIRED,
             'Specify the Git tag use for split. Use the most recent one by default'
         );
+        $this->addOption(
+            Option::BRANCH,
+            'b',
+            InputOption::VALUE_REQUIRED,
+            'Specify the Git branch use for split. Use master by default'
+        );
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): int
@@ -87,12 +93,14 @@ final class SplitCommand extends Command
             : null;
 
         $tag = $input->getOption(Option::TAG);
+        $branch = $input->getOption(Option::BRANCH);
 
         $this->packageToRepositorySplitter->splitDirectoriesToRepositories(
             $this->directoriesToRepositories,
             $this->rootDirectory,
             $maxProcesses,
-            $tag
+            $tag,
+            $branch
         );
 
         return ShellCode::SUCCESS;
